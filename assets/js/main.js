@@ -3,7 +3,7 @@ const animals = [
     id: 1,
     title: "Baleia Azul",
     category: "mar aberto",
-    img: "./images/item-1.jpeg",
+    img: "./assets/imgs/extinction2.png",
     desc: `<span>Características:</span> A baleia azul é o maior animal do planeta, podendo atingir até 30 metros de comprimento e pesar mais de 200 toneladas.`,
     habitat: `<span>Habitat:</span> Essas tartarugas podem ser encontradasem oceanos de todo o mundo, desde águas tropicais até aspolares. Elas frequentam áreas costeiras e oceânicas.`,
     threats: `<span>Ameaças:</span> A colisão com embarcações e a poluição sonora dos oceanos são ameaças significativas para essas majestosas criaturas.`,
@@ -13,7 +13,7 @@ const animals = [
     id: 2,
     title: "Orcinus Orca",
     category: "mar aberto",
-    img: "./images/item-1.jpeg",
+    img: "./assets/imgs/extinction3.png",
     desc: `<span>Características:</span> A orca, também conhecida como baleia assassina, é um mamífero marinho de grande porte com uma aparência distintiva.`,
     habitat: `<span>Habitat:</span> Orcas são altamente adaptáveis e podem ser encontradas em todos os oceanos do mundo, desde águas costeiras até mar aberto.`,
     threats: `<span>Ameaças:</span> Poluição, captura para aquários, colisões com embarcações e escassez de presas são ameaças que afetam as populações de orcas.`,
@@ -23,7 +23,7 @@ const animals = [
     id: 3,
     title: "Tartaruga-de-Couro",
     category: "mar aberto",
-    img: "./images/item-1.jpeg",
+    img: "./assets/imgs/extinction4.png",
     desc: `<span>Características:</span> A tartaruga-de-couro é a maior das tartarugas marinhas, caracterizada por sua carapaça flexível e pele com textura de couro.`,
     habitat: `<span>Habitat:</span> Essas tartarugas podem ser encontradas em oceanos de todo o mundo, desde águas tropicais até as polares. Elas frequentam áreas costeiras e oceânicas.`,
     threats: `<span>Ameaças:</span> Pesca acidental, ingestão de plástico, degradação de áreas de desova e mudanças climáticas.`,
@@ -33,7 +33,7 @@ const animals = [
     id: 4,
     title: "Golfinho-Rotador",
     category: "mar aberto",
-    img: "./images/item-1.jpeg",
+    img: "./assets/imgs/extinction5.png",
     desc: `<span>Características:</span> Ele é conhecido por seu corpo esbelto e pela coloração cinza-azulada nas costas que se estende em um padrão de "rotação" pelo corpo.`,
     habitat: `<span>Habitat:</span> Esses golfinhos são encontrados em águas tropicais e subtropicais ao redor do mundo, frequentemente em alto-mar.`,
     threats: `<span>Ameaças:</span> Captura acidental em redes de pesca, poluição marinha e perturbações sonoras submarinas representam ameaças significativas para esses golfinhos.`,
@@ -43,7 +43,7 @@ const animals = [
     id: 5,
     title: "Foca-Monge-do-Havaí",
     category: "costa",
-    img: "./images/item-1.jpeg",
+    img: "./assets/imgs/extinction6.png",
     desc: `<span>Características:</span> A foca-monge-do-Havaí é uma espécie de foca com uma pelagem dourada distintiva. Ela é uma das focas mais raras do mundo.`,
     habitat: `<span>Habitat:</span> Encontrada apenas nas ilhas havaianas, essa espécie costuma se reproduzir em praias remotas.`,
     threats: `<span>Ameaças:</span> A degradação do habitat, captura acidental em redes de pesca, doenças e poluição ameaçam gravemente essas focas.`,
@@ -118,3 +118,55 @@ function scrollActive() {
 window.addEventListener("scroll", scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const buttonContainer = document.getElementById('button-container');
+const cardContainer = document.getElementById('card-container');
+
+function displayMenuItems(menuItems){
+
+}
+function displayMenuButtons(menuItems){
+  let displayMenu = animals.map((animal)=>{
+    return `
+        <div class="extinction__card">
+          <div class="extinction__card-bg">
+            <img
+              src="./assets/imgs/extinction1.png"
+              class="extinction__img-one"
+              alt=""
+            />
+            <img
+              src="${animal.img}"
+              class="extinction__img-two"
+              alt=""
+            />
+          </div>
+          <div class="extinction__card-data">
+            <h3 class="extinction__card-title">${animal.title}</h3>
+            <h4 class="extinction__card-description">
+              ${animal.desc}
+            </h4>
+            <h4 class="extinction__card-description">
+              ${animal.habitat}
+            </h4>
+            <h4 class="extinction__card-description">
+              ${animal.threats}
+            </h4>
+            <h4 class="extinction__card-description">
+              ${animal.protection}
+            </h4>
+          </div>
+        </div>
+    `;
+  })
+
+    displayMenu = displayMenu.join("");
+    cardContainer.innerHTML = displayMenu;
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  displayMenuItems(animals);
+  displayMenuButtons();
+});
+
+/*=============== FILTER ANIMALS ===============*/

@@ -418,13 +418,13 @@ img {
 }
 
 .extinction__card-title {
-  font-size: var(--h2-font-size);
+  font-size: var(--h3-font-size);
   text-align: center;
   margin-top: 1rem;
 }
 
 .extinction__card-description {
-  font-size: var(--normal-font-size);
+  font-size: .9rem;
   font-weight: var(--font-regular);
   color: var(--white-color);
 }
@@ -548,12 +548,11 @@ img {
     column-gap: 2rem;
   }
 
-.footer__container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  
-}
+  .footer__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
 }
 
 /* For large devices */
@@ -561,22 +560,92 @@ img {
   .container {
     margin-left: auto;
     margin-right: auto;
+    max-width: 1280px;
   }
 
-  .home__title{
+  .section{
+        margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .home__title {
     line-height: 70px;
   }
 
-  .tips__wrapper{
+  .tips__wrapper {
     display: grid;
+    grid-template-areas:
+      "text-one img-one text-two"
+      "img-six  img-one img-two"
+      "img-six  text-three img-seven"
+      "img-six  text-three img-seven"
+      "img-six  img-three img-seven"
+      "text-four img-three img-seven"
+      "img-four text-five img-five";
+    align-items: flex-start;
+    text-align: initial;
   }
 
+  .text-one {
+    grid-area: text-one;
+  }
+
+  .img-one {
+    grid-area: img-one;
+    width: 500px;
+    justify-self: center;
+  }
+
+  .text-two {
+    grid-area: text-two;
+  }
+
+  .img-two {
+    grid-area: img-two;
+  }
+
+  .text-three {
+    grid-area: text-three;
+
+    margin: -5rem 4rem 0 4rem;
+  }
+
+  .img-three {
+    grid-area: img-three;
+    margin-top: -7rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
+
+  .text-four {
+    grid-area: text-four;
+  }
+
+  .img-four {
+    grid-area: img-four;
+  }
+
+  .text-five {
+    grid-area: text-five;
+  }
+
+  .img-five {
+    grid-area: img-five;
+  }
+
+  .img-six {
+    grid-area: img-six;
+  }
+  .img-seven {
+    grid-area: img-seven;
+  }
+}
+
 @media screen and (min-width: 1200px) {
-    .extinction__cards {
+  .extinction__cards {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(3, 370px);
     column-gap: 4rem;
   }
-}
 }
