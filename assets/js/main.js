@@ -117,15 +117,12 @@ function scrollActive() {
 }
 window.addEventListener("scroll", scrollActive);
 
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-const buttonContainer = document.getElementById('button-container');
-const cardContainer = document.getElementById('card-container');
+/*=============== FILTER ANIMALS ===============*/
+const buttonContainer = document.getElementById("button-container");
+const cardContainer = document.getElementById("card-container");
 
-function displayMenuItems(menuItems){
-
-}
-function displayMenuButtons(menuItems){
-  let displayMenu = animals.map((animal)=>{
+function displayAnimalCategory(animalCategory) {
+  let displayAnimal = animalCategory.map((animal) => {
     return `
         <div class="extinction__card">
           <div class="extinction__card-bg">
@@ -157,16 +154,50 @@ function displayMenuButtons(menuItems){
           </div>
         </div>
     `;
-  })
+  });
 
-    displayMenu = displayMenu.join("");
-    cardContainer.innerHTML = displayMenu;
+  displayAnimal = displayAnimal.join("");
+  cardContainer.innerHTML = displayAnimal;
 }
 
+function filterAnimals(category) {
+  const filteredAnimals = animals.filter(
+    (animal) => animal.category === category
+  );
+  displayAnimalCategory(filteredAnimals);
+}
 
-window.addEventListener("DOMContentLoaded", () => {
-  displayMenuItems(animals);
-  displayMenuButtons();
+const categories = animals.reduce((values, item) => {
+  if (!values.includes(item.category)) {
+    values.push(item.category);
+  }
+  return values;
+}, []);
+
+const categoryBtns = categories
+  .map((category) => {
+    return `
+      <button
+        class="button"
+        id="filter-btn"
+        data-id="${category}"
+      >
+        ${category}
+      </button>`;
+  })
+  .join("");
+
+buttonContainer.innerHTML = categoryBtns;
+
+// Defina a categoria padrão (mar aberto)
+let currentCategory = "mar aberto";
+filterAnimals(currentCategory);
+
+// Adicione eventos de clique aos botões de categoria
+const filterButtons = document.querySelectorAll("#filter-btn");
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    currentCategory = button.getAttribute("data-id");
+    filterAnimals(currentCategory);
+  });
 });
-
-/*=============== FILTER ANIMALS ===============*/
