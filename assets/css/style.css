@@ -19,7 +19,7 @@
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --biggest-font-size: 2.5rem;
-  --h1-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1.125rem;
   --normal-font-size: 0.938rem;
@@ -106,9 +106,8 @@ img {
   padding-block: 4rem 2rem;
 }
 
-.section__title-1 {
+.section__title{
   font-size: var(--h1-font-size);
-  margin: 0.75rem auto 2rem;
 }
 
 .main {
@@ -147,7 +146,7 @@ img {
 }
 
 /* Navigation for mobile devices */
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 762px) {
   .nav__menu {
     position: fixed;
     right: -100%;
@@ -289,7 +288,7 @@ img {
 }
 
 .about__title {
-  font-size: var(--biggest-font-size);
+  font-size: var(--h1-font-size);
   margin-bottom: 0.5rem;
 }
 
@@ -333,7 +332,14 @@ img {
   text-align: center;
 }
 
+.tips__title{
+  font-size: var(--h1-font-size);
+  border-bottom: 2px solid var(--title-color);
+  padding-bottom: 1rem;
+}
+
 .tips__wrapper {
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
@@ -351,7 +357,7 @@ img {
 
 .extinction__title {
   text-align: center;
-  font-size: var(--biggest-font-size);
+  font-size: var(--h1-font-size);
   margin-bottom: 3rem;
 }
 
@@ -586,6 +592,7 @@ img {
       "img-four text-five img-five";
     align-items: flex-start;
     text-align: initial;
+    grid-template-columns: 280px 700px 280px;
   }
 
   .text-one {
@@ -594,7 +601,7 @@ img {
 
   .img-one {
     grid-area: img-one;
-    width: 500px;
+    width: 600px;
     justify-self: center;
   }
 
@@ -608,15 +615,13 @@ img {
 
   .text-three {
     grid-area: text-three;
-
-    margin: -5rem 4rem 0 4rem;
+    margin: -8rem 4rem 0 3.3rem;
   }
 
   .img-three {
     grid-area: img-three;
-    margin-top: -7rem;
-    margin-right: 3rem;
-    margin-left: 3rem;
+      width: 600px;
+      margin: -2rem  auto;
   }
 
   .text-four {
@@ -629,6 +634,7 @@ img {
 
   .text-five {
     grid-area: text-five;
+    margin: 0 3.2rem 0 3.2rem;
   }
 
   .img-five {
@@ -650,4 +656,8 @@ img {
     grid-template-columns: repeat(3, 370px);
     column-gap: 4rem;
   }
+}
+
+@media sreen and(min-width: 1290px){
+
 }
