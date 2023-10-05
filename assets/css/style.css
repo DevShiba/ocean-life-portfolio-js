@@ -390,8 +390,14 @@ img {
 .img-six {
   display: none;
 }
+.img-six img{
+      border-radius: 7px;
+}
 .img-seven {
   display: none;
+}
+.img-seven img{
+      border-radius: 7px;
 }
 
 /*=============== EXTINCTION ===============*/
@@ -508,6 +514,7 @@ img {
 .footer__socials a {
   color: var(--text-color-light);
   transition: 0.4s color;
+  padding: 0 0.3rem;
 }
 
 .footer__socials a:hover {
@@ -712,9 +719,15 @@ img {
     grid-area: img-six;
     display: block;
   }
+  .img-six img {
+    height: 700px;
+  }
   .img-seven {
     grid-area: img-seven;
     display: block;
+  }
+  .img-seven img {
+    height: 700px;
   }
 
   .tips__border {
