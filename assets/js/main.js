@@ -1,6 +1,7 @@
 const animals = [
   {
     id: 1,
+    class: "card-one",
     title: "Baleia Azul",
     category: "água salgada",
     img: "./assets/imgs/extinction2.png",
@@ -11,6 +12,7 @@ const animals = [
   },
   {
     id: 2,
+    class: "card-two",
     title: "Orcinus Orca",
     category: "água salgada",
     img: "./assets/imgs/extinction3.png",
@@ -21,6 +23,7 @@ const animals = [
   },
   {
     id: 3,
+    class: "card-three",
     title: "Tartaruga-de-Couro",
     category: "água salgada",
     img: "./assets/imgs/extinction4.png",
@@ -31,6 +34,7 @@ const animals = [
   },
   {
     id: 4,
+    class: "card-four",
     title: "Golfinho-Rotador",
     category: "água salgada",
     img: "./assets/imgs/extinction5.png",
@@ -41,6 +45,7 @@ const animals = [
   },
   {
     id: 5,
+    class: "card-five",
     title: "Foca-Monge-do-Havaí",
     category: "água salgada",
     img: "./assets/imgs/extinction6.png",
@@ -51,6 +56,7 @@ const animals = [
   },
   {
     id: 6,
+    class: "card-six",
     title: "Lambari",
     category: "água doce",
     img: "./assets/imgs/extinction7.png",
@@ -61,6 +67,7 @@ const animals = [
   },
   {
     id: 7,
+    class: "card-seven",
     title: "Peixe-da-Amazônia",
     category: "água doce",
     img: "./assets/imgs/extinction8.png",
@@ -71,6 +78,7 @@ const animals = [
   },
   {
     id: 8,
+    class: "card-eight",
     title: "Peixe-boi-da-Amazônia",
     category: "água doce",
     img: "./assets/imgs/extinction10.png",
@@ -81,6 +89,7 @@ const animals = [
   },
   {
     id: 9,
+    class: "card-nine",
     title: "Atum-Rabilho do Atlântico",
     category: "água salgada",
     img: "./assets/imgs/extinction11.png",
@@ -91,6 +100,7 @@ const animals = [
   },
   {
     id: 10,
+    class: "card-ten",
     title: "Esturjão-Atlântico",
     category: "água doce",
     img: "./assets/imgs/extinction12.png",
@@ -101,6 +111,7 @@ const animals = [
   },
   {
     id: 11,
+    class: "card-eleven",
     title: "Salminus Brasiliensis",
     category: "água doce",
     img: "./assets/imgs/extinction13.png",
@@ -193,7 +204,7 @@ function displayAnimalCategory(animalCategory) {
             />
             <img
               src="${animal.img}"
-              class="extinction__img-two"
+              class="extinction__img-two ${animal.class}"
               alt=""
             />
           </div>
@@ -261,3 +272,51 @@ filterButtons.forEach((button) => {
     filterAnimals(currentCategory);
   });
 });
+
+/*==================== SCROLL REVEAL ANIMATION ====================*/
+const sr = ScrollReveal({
+  distance: "60px",
+  duration: 2800,
+  // reset: true,
+});
+
+sr.reveal(
+  `.home__data,
+   .home__information, 
+    .section__title,
+   .text-one,
+   .text-two,
+   .text-three,
+   .text-four,
+   .text-five,
+   .img-one,
+   .img-two,
+   .img-three,
+   .img-four,
+   .img-five,
+   .img-six,
+   .img-seven,
+   .tips__border,
+   .extinction__filter,
+   .extinction__cards`,
+
+  {
+    origin: "top",
+    interval: 100,
+  }
+);
+
+sr.reveal(
+  `.about__img`,
+  {
+    origin: "left",
+  }
+);
+
+sr.reveal(
+  `.about__data`,
+  {
+    origin: "right",
+    interval: 100,
+  }
+);
