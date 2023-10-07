@@ -260,11 +260,9 @@ const categoryBtns = categories
 
 buttonContainer.innerHTML = categoryBtns;
 
-// Defina a categoria padrão (mar aberto)
 let currentCategory = "água salgada";
 filterAnimals(currentCategory);
 
-// Adicione eventos de clique aos botões de categoria
 const filterButtons = document.querySelectorAll("#filter-btn");
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
